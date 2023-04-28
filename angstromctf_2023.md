@@ -37,7 +37,9 @@ if __name__ == "__main__":
 ```
 
 Khảo sát website, ta thấy các chức năng:
+
 +) Login form cho phép nhập username và password, sẽ hiển thị "Wrong username or password" cho dù thông tin đăng nhập có là gì chăng nữa.
+
 +) Admin bot sẽ visit URL với domain hợp lệ, điền thông tin username và password vào các ô input rồi submit form. Trong đó, password chính là flag.
 
 Như vậy, ta cần đọc request login do admin bot submit. Đọc file `app.py`, ta thấy tham số `message` được truyền vào template. Thử `/?message={{7*7}}` => có lỗ hổng SSTI, tuy nhiên giới hạn độ dài là 25 nên cần tìm cách bypass.
