@@ -1,4 +1,6 @@
 # 1. Conditions
+*Knowledge: uppercase() can change length of a string*
+
 Related problem: https://stackoverflow.com/questions/28683805/is-there-a-unicode-string-which-gets-longer-when-converted-to-lowercase
 
 Source code:
