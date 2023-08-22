@@ -46,3 +46,5 @@ Sau khi thành công, dùng LFI đọc file `/proc/self/fd/10`, ta thấy:
 ![image](https://github.com/n0bitaemon/CTF-writeup/assets/103978452/030dad59-f9c7-4b91-b81a-9435fdb298ca)
 
 Như vậy ta đã RCE thành công => đọc flag thôi!
+
+*Kinh nghiệm: Lợi dụng LFI đọc status của process (/proc/self/...)*
